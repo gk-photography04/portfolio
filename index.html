@@ -1,340 +1,82 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#171411">
-  <meta name="description" content="Gouri Sankar Photography Studio, Rayagada. Wedding photography, cinematic films and creative video editing.">
-  <title> GK PHOTOGRAPHY | Rayagada</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #171411;
-      --panel: #211c18;
-      --gold: #d9b879;
-      --cream: #f7f0e5;
-      --muted: #b9afa2;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--cream);
-      font-family: 'DM Sans', sans-serif;
-      line-height: 1.7;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .wrap { width: min(1120px, 90%); margin: auto; }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(23,20,17,.95);
-      border-bottom: 1px solid #3b3025;
-      backdrop-filter: blur(12px);
-    }
-    nav {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 25px;
-      font-weight: 600;
-      color: var(--gold);
-    }
-    .navlinks { display: flex; gap: 22px; font-size: 13px; }
-    .navlinks a:hover { color: var(--gold); }
-
-    .hero {
-      min-height: 590px;
-      display: grid;
-      align-items: center;
-      background:
-        linear-gradient(90deg, rgba(18,15,12,.96) 0%, rgba(18,15,12,.75) 48%, rgba(18,15,12,.15) 100%),
-        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85') center 45%/cover;
-    }
-    .hero-content { padding: 100px 0; max-width: 670px; }
-    .eyebrow {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 11px;
-      font-weight: 700;
-    }
-    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; line-height: 1.1; }
-    h1 { font-size: clamp(48px, 8vw, 86px); margin: 22px 0; }
-    h1 em { color: var(--gold); font-weight: 400; }
-    .hero p { max-width: 480px; color: #e0d6ca; font-size: 16px; }
-    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
-    .btn {
-      display: inline-block;
-      padding: 13px 21px;
-      border: 1px solid var(--gold);
-      color: var(--cream);
-      font-size: 13px;
-      transition: .2s;
-    }
-    .btn.primary { background: var(--gold); color: #20180e; }
-    .btn:hover { transform: translateY(-2px); opacity: .88; }
-
-    section { padding: 85px 0; }
-    .section-head { max-width: 650px; margin-bottom: 35px; }
-    .section-head h2 { font-size: clamp(37px, 5vw, 55px); margin: 12px 0; }
-    .section-head p, .muted { color: var(--muted); }
-    .gold { color: var(--gold); }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-    .photo {
-      display: block;
-      height: 330px;
-      overflow: hidden;
-      background: var(--panel);
-      position: relative;
-    }
-    .photo img { transition: transform .5s; }
-    .photo:hover img { transform: scale(1.06); }
-    .photo span {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 35px 16px 14px;
-      background: linear-gradient(transparent, rgba(0,0,0,.8));
-      font-size: 13px;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .feature {
-      padding: 28px;
-      border: 1px solid #3b3025;
-      background: var(--panel);
-    }
-    .feature .number { color: var(--gold); font-size: 12px; letter-spacing: 2px; }
-    .feature h3 { font-size: 28px; margin: 15px 0 12px; }
-    .feature p { color: var(--muted); font-size: 14px; }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 45px;
-      align-items: center;
-    }
-    .about-image { height: 470px; background: var(--panel); }
-    .about-copy h2 { font-size: clamp(38px, 5vw, 58px); margin: 15px 0 22px; }
-    .about-copy p { color: var(--muted); margin-bottom: 15px; }
-    .quote {
-      margin-top: 25px;
-      padding-left: 18px;
-      border-left: 2px solid var(--gold);
-      color: var(--gold);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 25px;
-    }
-
-    .studio {
-      text-align: center;
-      background: #211c18;
-    }
-    .studio h2 { font-size: clamp(40px, 6vw, 60px); margin: 14px 0; }
-    .studio p { max-width: 600px; margin: 0 auto; color: var(--muted); }
-
-    .instagram-panel {
-      text-align: center;
-      padding: 45px 25px;
-      border: 1px solid #59472f;
-      background: linear-gradient(135deg, #292017, #171411);
-    }
-    .instagram-panel h2 { font-size: clamp(38px, 6vw, 60px); margin: 14px 0; }
-    .instagram-panel p { color: var(--muted); margin-bottom: 24px; }
-
-    footer { padding: 30px 0; border-top: 1px solid #3b3025; }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      font-size: 12px;
-      color: var(--muted);
-    }
-    footer a { color: var(--gold); }
-
-    @media (max-width: 720px) {
-      .navlinks { gap: 12px; font-size: 11px; }
-      .brand { font-size: 21px; }
-      .hero { min-height: 560px; background-position: 58% center; }
-      .hero-content { padding: 80px 0; }
-      section { padding: 62px 0; }
-      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-      .photo { height: 235px; }
-      .feature-grid { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; gap: 28px; }
-      .about-image { height: 350px; }
-    }
-    @media (max-width: 380px) {
-      .navlinks { gap: 8px; font-size: 10px; }
-      .brand { font-size: 18px; }
-      .photo { height: 190px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171612">
+<meta name="description" content="GK Photography, Rayagada. Wedding photography, cinematic films, and creative storytelling by Gouri Sankar.">
+<title>GK Photography | Wedding Photography in Rayagada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#171612;--panel:#222019;--cream:#f4efe6;--muted:#b5afa2;--gold:#d2b17b;--line:rgba(244,239,230,.17);--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:90px}body{background:var(--bg);color:var(--cream);font-family:var(--sans);line-height:1.7;overflow-x:hidden}img{display:block;width:100%;height:100%;object-fit:cover}a{color:inherit;text-decoration:none}button{font:inherit}.container{width:min(1200px,90%);margin:auto}.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600}.gold{color:var(--gold)}.muted{color:var(--muted)}
+.topbar{padding:7px 12px;text-align:center;border-bottom:1px solid var(--line);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+header{position:sticky;top:0;z-index:20;background:rgba(23,22,18,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{font-family:var(--serif);font-size:21px;line-height:1.2}.logo small{display:block;font-family:var(--sans);color:var(--gold);font-size:8px;letter-spacing:3px;text-transform:uppercase;margin-top:5px}.navlinks{display:flex;align-items:center;gap:23px;font-size:11px}.navlinks a:hover{color:var(--gold)}.nav-cta{border:1px solid var(--gold);padding:10px 14px}.menu-toggle{display:none;background:transparent;border:1px solid var(--line);color:var(--cream);padding:8px 11px}
+.hero{min-height:min(760px,85svh);position:relative;display:flex;align-items:flex-end;background:#29241d;isolation:isolate}.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(16,15,12,.94),rgba(16,15,12,.1) 75%),linear-gradient(90deg,rgba(16,15,12,.45),transparent 80%),url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85") center/cover}.hero-content{padding:100px 0 75px;max-width:850px}.hero h1{font-family:var(--serif);font-size:clamp(47px,8.8vw,105px);font-weight:400;line-height:1.02;letter-spacing:-2px;margin:24px 0}.hero h1 em{color:var(--gold)}.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:25px;flex-wrap:wrap}.hero-description{max-width:480px;color:#e1d9cc;font-size:13px}.hero-note{color:#d3cbbf;font-size:10px;letter-spacing:1px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid var(--gold);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;transition:.25s}.button.primary{background:var(--gold);color:#201b13}.button:hover{transform:translateY(-2px)}.button.outline:hover{background:var(--gold);color:var(--bg)}
+.intro-strip{border-bottom:1px solid var(--line);padding:21px 0}.strip-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.strip-inner span{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}.strip-inner .dot{color:var(--gold)}
+section{padding:92px 0}.section-heading{max-width:700px;margin-bottom:36px}.section-heading h2{font-family:var(--serif);font-size:clamp(37px,5.5vw,66px);font-weight:400;line-height:1.12;margin:15px 0}.section-heading p{max-width:520px;font-size:13px;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.gallery-card{position:relative;min-width:0;aspect-ratio:3/4;overflow:hidden;background:var(--panel)}.gallery-card img{transition:transform .6s}.gallery-card:hover img{transform:scale(1.06)}.gallery-card:after{content:"";position:absolute;inset:30% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.8));pointer-events:none}.gallery-caption{position:absolute;z-index:1;left:15px;right:12px;bottom:14px}.gallery-caption small{color:var(--gold);font-size:8px;letter-spacing:1.5px;text-transform:uppercase}.gallery-caption h3{font-family:var(--serif);font-weight:400;font-size:23px;margin-top:4px}.gallery-caption span{font-size:10px}.gallery-note{font-size:10px;color:var(--muted);margin-top:15px}
+.manifesto,.process{background:#211f19;border-block:1px solid var(--line)}.manifesto{text-align:center}.manifesto blockquote{max-width:850px;margin:22px auto;font-family:var(--serif);font-size:clamp(30px,5.6vw,62px);line-height:1.24}.manifesto p{font-size:11px;color:var(--muted)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.service{border:1px solid var(--line);padding:27px 23px;min-height:225px;background:rgba(255,255,255,.015)}.service-number{color:var(--gold);font-size:10px;letter-spacing:2px}.service h3{font-family:var(--serif);font-size:28px;font-weight:400;line-height:1.2;margin:23px 0 12px}.service p{font-size:12px;color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}.about-photo{height:510px;background:var(--panel)}.about-copy h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5vw,65px);line-height:1.1;margin:18px 0 24px}.about-copy p{font-size:13px;color:var(--muted);margin-bottom:15px}.about-details{margin-top:25px;border-top:1px solid var(--line);padding-top:16px}.detail{display:flex;justify-content:space-between;gap:15px;padding:9px 0;border-bottom:1px solid var(--line);font-size:11px}.detail span:first-child{color:var(--muted)}.detail span:last-child{text-align:right}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:36px}.process-item{border-top:1px solid var(--gold);padding-top:16px}.process-item .step{color:var(--gold);font-size:10px;letter-spacing:2px}.process-item h3{font-family:var(--serif);font-size:23px;font-weight:400;margin:13px 0 9px}.process-item p{font-size:11px;color:var(--muted)}.recognition{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center;border:1px solid var(--line);padding:35px}.recognition h2{font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:400;margin:13px 0}.recognition p{font-size:12px;color:var(--muted)}.recognition-badge{min-height:170px;border:1px solid #6b593a;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}.seal{color:var(--gold);font-size:28px}.recognition-badge strong{font-family:var(--serif);font-size:25px;font-weight:400;margin-top:8px}.recognition-badge span{color:var(--muted);font-size:9px;letter-spacing:2px;text-transform:uppercase}
+.contact-panel{padding:78px 24px;text-align:center;background:linear-gradient(rgba(20,18,14,.8),rgba(20,18,14,.9)),url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80") center/cover;border:1px solid var(--line)}.contact-panel h2{font-family:var(--serif);font-size:clamp(38px,6vw,68px);font-weight:400;line-height:1.15;margin:16px auto;max-width:700px}.contact-panel p{max-width:460px;margin:auto;font-size:12px;color:#d0c8bc}.contact-panel .actions{justify-content:center}
+footer{padding:28px 0;border-top:1px solid var(--line)}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}.footer-brand{font-family:var(--serif);font-size:19px}.footer-meta{font-size:10px;color:var(--muted)}.footer-links{display:flex;gap:17px;font-size:10px}.footer-links a:hover{color:var(--gold)}
+@media(max-width:800px){.navlinks{gap:12px}.about-grid{gap:28px}.process-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.nav{min-height:68px}.menu-toggle{display:block}.navlinks{display:none;position:absolute;left:0;right:0;top:100%;padding:20px 5%;background:#1b1a15;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.navlinks.open{display:flex}.navlinks a{padding:12px 0;border-bottom:1px solid var(--line)}.navlinks .nav-cta{margin-top:12px;text-align:center;padding:12px}.hero{min-height:82svh}.hero:before{background-position:57% center}.hero-content{padding:70px 0 50px}.hero h1{font-size:clamp(47px,12vw,75px);letter-spacing:-1px}.hero-description{font-size:12px}.hero-note{display:none}.strip-inner{justify-content:center;gap:10px 15px}.strip-inner span{font-size:8px}section{padding:68px 0}.section-heading{margin-bottom:26px}.section-heading p{font-size:12px}.gallery{grid-template-columns:1fr 1fr;gap:9px}.gallery-caption{left:9px;right:8px;bottom:9px}.gallery-caption h3{font-size:17px}.gallery-caption small{font-size:7px;letter-spacing:1px}.gallery-caption span{font-size:9px}.manifesto blockquote{font-size:clamp(30px,8vw,44px)}.services-grid{grid-template-columns:1fr}.service{min-height:0;padding:23px}.service h3{margin:14px 0 8px}.about-grid{grid-template-columns:1fr;gap:28px}.about-photo{height:340px}.about-copy h2{font-size:47px}.process-grid{grid-template-columns:1fr 1fr;gap:24px 16px}.recognition{grid-template-columns:1fr;padding:22px;gap:20px}.contact-panel{padding:58px 17px}.footer-inner{flex-direction:column;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
 </head>
-
 <body>
-  <header>
-    <nav class="wrap">
-      <a class="brand" href="#home">GS Photography</a>
-      <div class="navlinks">
-        <a href="#gallery">Gallery</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="wrap hero-content">
-        <div class="eyebrow">Photography · Films · Memories</div>
-        <h1>Every picture<br>tells a <em>love story.</em></h1>
-        <p>Capturing real emotions, beautiful traditions, and unforgettable wedding moments — with creativity, care, and a cinematic touch.</p>
-        <div class="actions">
-          <a class="btn primary" href="#gallery">Explore the Gallery</a>
-          <a class="btn" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">Visit Instagram ↗</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="gallery">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">A collection of moments</div>
-          <h2>Stories worth <span class="gold">remembering.</span></h2>
-          <p>Every celebration has its own story. Explore these photography inspirations, then visit Instagram to discover Gouri Sankar's actual work.</p>
-        </div>
-
-        <div class="gallery">
-          <a class="photo" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Wedding celebration photography" loading="lazy">
-            <span>Wedding Stories ↗</span>
-          </a>
-          <a class="photo" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">
-            <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=700&q=80" alt="Wedding couple portrait" loading="lazy">
-            <span>Couple Portraits ↗</span>
-          </a>
-          <a class="photo" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">
-            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=700&q=80" alt="Wedding details and celebration" loading="lazy">
-            <span>Beautiful Details ↗</span>
-          </a>
-          <a class="photo" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">
-            <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=700&q=80" alt="Romantic wedding moment" loading="lazy">
-            <span>Real Emotions ↗</span>
-          </a>
-          <a class="photo" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">
-            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Wedding photography moment" loading="lazy">
-            <span>Timeless Memories ↗</span>
-          </a>
-          <a class="photo" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">
-            <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=700&q=80" alt="Wedding couple celebrating" loading="lazy">
-            <span>More on Instagram ↗</span>
-          </a>
-        </div>
-        <p class="muted" style="font-size:12px; margin-top:16px;">Gallery images are illustrative examples, not verified photographs by Gouri Sankar. Tap any image to visit his Instagram.</p>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">What we love to create</div>
-          <h2>More than pictures.<br><span class="gold">Memories for life.</span></h2>
-        </div>
-        <div class="feature-grid">
-          <article class="feature">
-            <div class="number">01 / PHOTOGRAPHY</div>
-            <h3>Wedding Photography</h3>
-            <p>From candid emotions to cherished traditions, preserving the moments that make every celebration unique.</p>
-          </article>
-          <article class="feature">
-            <div class="number">02 / CINEMATOGRAPHY</div>
-            <h3>Wedding Films</h3>
-            <p>Beautifully captured moving moments transformed into meaningful visual stories.</p>
-          </article>
-          <article class="feature">
-            <div class="number">03 / CREATIVE EDITING</div>
-            <h3>Video Editing</h3>
-            <p>Thoughtful colour grading, smooth transitions, and music that brings every moment together.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="wrap about-grid">
-        <div class="about-image">
-          <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=900&q=85" alt="Professional camera used for creative photography" loading="lazy">
-        </div>
-        <div class="about-copy">
-          <div class="eyebrow">Behind the lens</div>
-          <h2>Meet <span class="gold">Gouri Sankar.</span></h2>
-          <p>A photographer and video editor driven by a passion for capturing moments that matter.</p>
-          <p>With patience, dedication, and attention to every detail, he works to turn special occasions into memories people can revisit for years to come.</p>
-          <p>From selecting the right music to refining colour and transitions, every edit is approached with care and creativity.</p>
-          <p><strong class="gold">Studio:</strong> Rayagada, Odisha</p>
-          <p><strong class="gold">Recognition:</strong> Editing certificate from Restart Academy</p>
-          <div class="quote">“The best photographs don't just show a moment. They make you feel it again.”</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="studio">
-      <div class="wrap">
-        <div class="eyebrow">Local roots · Lasting memories</div>
-        <h2>Made with passion in <span class="gold">Rayagada.</span></h2>
-        <p>For wedding photography, cinematic memories, and creative editing, connect with Gouri Sankar through Instagram to discuss your requirements.</p>
-        <div class="actions" style="justify-content:center;">
-          <a class="btn primary" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">Get in Touch ↗</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="wrap">
-        <div class="instagram-panel">
-          <div class="eyebrow">Let's create something beautiful</div>
-          <h2>Follow the stories on <span class="gold">Instagram.</span></h2>
-          <p>Explore photographs, discover recent work, and connect directly with Gouri Sankar.</p>
-          <a class="btn primary" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">@gk_photography04 ↗</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <span>© <span id="year"></span> Gouri Sankar Photography</span>
-      <span>Made with passion in Rayagada · <a href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></span>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<div class="topbar">Wedding photography · Cinematic films · Rayagada, Odisha</div>
+<header><nav class="container nav" aria-label="Main navigation">
+<a href="#home" class="logo">GK PHOTOGRAPHY<small>Wedding Photography · Rayagada</small></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navlinks">☰ Menu</button>
+<div class="navlinks" id="navlinks">
+<a href="#portfolio">Portfolio</a><a href="#services">Services</a><a href="#about">Our Story</a><a href="#process">Process</a>
+<a class="nav-cta" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">Enquire ↗</a>
+</div></nav></header>
+<main>
+<section class="hero" id="home"><div class="container hero-content">
+<div class="eyebrow">For the moments that become forever</div>
+<h1>Love, in all<br>its <em>beautiful</em><br>details.</h1>
+<div class="hero-bottom"><div><p class="hero-description">Thoughtfully captured weddings, honest emotions, and cinematic stories crafted to bring you back to the moments you never want to forget.</p>
+<div class="actions"><a class="button primary" href="#portfolio">Explore our work ↗</a><a class="button outline" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="hero-note">Based in Rayagada, Odisha<br>Available for wedding enquiries</div></div>
+</div></section>
+<div class="intro-strip"><div class="container strip-inner"><span>Wedding photography</span><span class="dot">✳</span><span>Cinematic films</span><span class="dot">✳</span><span>Creative editing</span><span class="dot">✳</span><span>Real emotions</span></div></div>
+<section id="portfolio"><div class="container"><div class="section-heading"><div class="eyebrow">Selected visual stories / 01</div><h2>Moments that deserve<br>to be <span class="gold">remembered.</span></h2><p>Every couple, every celebration, every little detail has a story. Discover our visual world and explore more photographs on Instagram.</p></div>
+<div class="gallery">
+<a class="gallery-card" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85" alt="Wedding celebration" loading="lazy"><div class="gallery-caption"><small>01 / Celebration</small><h3>Wedding Stories</h3><span>Explore on Instagram ↗</span></div></a>
+<a class="gallery-card" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=85" alt="Couple portrait" loading="lazy"><div class="gallery-caption"><small>02 / Connection</small><h3>Couple Portraits</h3><span>Explore on Instagram ↗</span></div></a>
+<a class="gallery-card" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=900&q=85" alt="Wedding details" loading="lazy"><div class="gallery-caption"><small>03 / The details</small><h3>Little Moments</h3><span>Explore on Instagram ↗</span></div></a>
+<a class="gallery-card" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=85" alt="Wedding celebration" loading="lazy"><div class="gallery-caption"><small>04 / The feeling</small><h3>Real Emotions</h3><span>Explore on Instagram ↗</span></div></a><a class="gallery-card" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85" alt="Wedding couple" loading="lazy"><div class="gallery-caption"><small>05 / Together</small><h3>Timeless Memories</h3><span>Explore on Instagram ↗</span></div></a>
+<a class="gallery-card" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=900&q=85" alt="Romantic wedding moment" loading="lazy"><div class="gallery-caption"><small>06 / Your story</small><h3>More Stories</h3><span>Explore on Instagram ↗</span></div></a>
+</div><p class="gallery-note">These are illustrative sample images, not verified photographs by Gouri Sankar. Tap any image to visit his Instagram profile.</p><div class="actions"><a class="button outline" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">View Instagram Portfolio ↗</a></div>
+</div></section>
+<section class="manifesto"><div class="container"><div class="eyebrow">Our point of view</div><blockquote>“A photograph should do more than show you how it looked. It should remind you how it <em class="gold">felt.</em>”</blockquote><p>Honest moments. Thoughtful storytelling. Memories made to last.</p></div></section>
+<section id="services"><div class="container"><div class="section-heading"><div class="eyebrow">What we create / 02</div><h2>Every chapter,<br>beautifully <span class="gold">told.</span></h2><p>From the first frame to the final edit, the goal is to make your memories feel just as special years from now.</p></div>
+<div class="services-grid">
+<article class="service"><div class="service-number">01 — PHOTOGRAPHY</div><h3>Wedding Photography</h3><p>Emotional portraits, candid moments, family traditions, and the details that make your day yours.</p></article>
+<article class="service"><div class="service-number">02 — CINEMATOGRAPHY</div><h3>Wedding Films</h3><p>Moving images and meaningful moments shaped into a cinematic story you can revisit again and again.</p></article>
+<article class="service"><div class="service-number">03 — POST-PRODUCTION</div><h3>Creative Editing</h3><p>Thoughtful colour grading, transitions, pacing, and music that work together to tell the story.</p></article>
+</div></div></section>
+<section id="about"><div class="container about-grid"><div class="about-photo"><img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1000&q=85" alt="Professional photography camera" loading="lazy"></div>
+<div class="about-copy"><div class="eyebrow">The person behind the lens / 03</div><h2>Meet Gouri<br><span class="gold">Sankar.</span></h2><p>A photographer and video editor with a genuine passion for turning important moments into lasting visual memories.</p><p>Every project deserves patience, care, and attention. From selecting music that suits the story to refining colours and transitions, editing is an essential part of the experience.</p><p>Based in Rayagada, Odisha, Gouri brings dedication and creativity to meaningful storytelling and thoughtful delivery.</p><div class="about-details"><div class="detail"><span>Studio location</span><span>Rayagada, Odisha</span></div><div class="detail"><span>Speciality</span><span>Wedding stories & films</span></div><div class="detail"><span>Editing recognition</span><span>Restart Academy certificate</span></div></div><div class="actions"><a class="button outline" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">Connect with Gouri ↗</a></div></div></div></section>
+<section class="process" id="process"><div class="container"><div class="section-heading"><div class="eyebrow">A simple, thoughtful process / 04</div><h2>From your first message<br>to <span class="gold">forever memories.</span></h2><p>Every celebration is different. Here's a simple outline of how a photography enquiry can begin.</p></div>
+<div class="process-grid"><article class="process-item"><div class="step">STEP 01</div><h3>Say Hello</h3><p>Share your date, location, and the kind of celebration you are planning.</p></article><article class="process-item"><div class="step">STEP 02</div><h3>Plan Together</h3><p>Discuss your requirements, preferred style, and the moments that matter most.</p></article><article class="process-item"><div class="step">STEP 03</div><h3>Capture the Day</h3><p>Preserve genuine emotions, beautiful details, and unforgettable moments.</p></article><article class="process-item"><div class="step">STEP 04</div><h3>Relive the Story</h3><p>Discuss editing and delivery arrangements directly with the studio.</p></article></div></div></section>
+<section id="recognition"><div class="container"><div class="recognition"><div><div class="eyebrow">Learning & craftsmanship / 05</div><h2>Always learning.<br><span class="gold">Always creating.</span></h2><p>Good storytelling grows through curiosity, practice, and attention to detail. Gouri has also received an editing certificate from Restart Academy.</p></div><div class="recognition-badge"><div class="seal">✳</div><strong>Restart Academy</strong><span>Video Editing Certificate</span></div></div></div></section>
+<section id="contact"><div class="container"><div class="contact-panel"><div class="eyebrow">Your story starts here / 06</div><h2>Let's make something <em class="gold">unforgettable.</em></h2><p>Planning a wedding or looking for creative photography and editing? Reach out to Gouri Sankar through Instagram to discuss your project.</p><div class="actions"><a class="button primary" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">Enquire on Instagram ↗</a><a class="button outline" href="#portfolio">Explore the Portfolio ↑</a></div></div></div></section>
+</main>
+<footer><div class="container footer-inner"><div><div class="footer-brand">GK PHOTOGRAPHY</div><div class="footer-meta">Photography Studio · Rayagada, Odisha</div></div><div class="footer-links"><a href="#home">Home</a><a href="#portfolio">Portfolio</a><a href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div><div class="footer-meta">© <span id="year"></span> GK Photography</div></div></footer>
+<script>
+const menuToggle=document.getElementById("menuToggle");
+const navlinks=document.getElementById("navlinks");
+menuToggle.addEventListener("click",function(){const open=navlinks.classList.toggle("open");menuToggle.setAttribute("aria-expanded",String(open));menuToggle.textContent=open?"✕ Close":"☰ Menu";});
+navlinks.querySelectorAll("a").forEach(function(link){link.addEventListener("click",function(){navlinks.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.textContent="☰ Menu";});});
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
 </body>
 </html>

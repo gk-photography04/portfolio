@@ -4,214 +4,337 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Archana's personal portfolio, skills, experience and projects.">
-  <title>Archana | Personal Portfolio</title>
+  <meta name="theme-color" content="#171411">
+  <meta name="description" content="Gouri Sankar Photography Studio, Rayagada. Wedding photography, cinematic films and creative video editing.">
+  <title>Gouri Sankar Photography | Rayagada</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --bg: #171411;
+      --panel: #211c18;
+      --gold: #d9b879;
+      --cream: #f7f0e5;
+      --muted: #b9afa2;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: Arial, sans-serif;
-      background: #f8f7fc;
-      color: #25243a;
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
       line-height: 1.7;
     }
+    a { color: inherit; text-decoration: none; }
+    img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .wrap { width: min(1120px, 90%); margin: auto; }
+
     header {
-      background: #fff;
-      padding: 18px 7%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(23,20,17,.95);
+      border-bottom: 1px solid #3b3025;
+      backdrop-filter: blur(12px);
+    }
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 25px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .navlinks { display: flex; gap: 22px; font-size: 13px; }
+    .navlinks a:hover { color: var(--gold); }
+
+    .hero {
+      min-height: 590px;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(18,15,12,.96) 0%, rgba(18,15,12,.75) 48%, rgba(18,15,12,.15) 100%),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85') center 45%/cover;
+    }
+    .hero-content { padding: 100px 0; max-width: 670px; }
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; line-height: 1.1; }
+    h1 { font-size: clamp(48px, 8vw, 86px); margin: 22px 0; }
+    h1 em { color: var(--gold); font-weight: 400; }
+    .hero p { max-width: 480px; color: #e0d6ca; font-size: 16px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .btn {
+      display: inline-block;
+      padding: 13px 21px;
+      border: 1px solid var(--gold);
+      color: var(--cream);
+      font-size: 13px;
+      transition: .2s;
+    }
+    .btn.primary { background: var(--gold); color: #20180e; }
+    .btn:hover { transform: translateY(-2px); opacity: .88; }
+
+    section { padding: 85px 0; }
+    .section-head { max-width: 650px; margin-bottom: 35px; }
+    .section-head h2 { font-size: clamp(37px, 5vw, 55px); margin: 12px 0; }
+    .section-head p, .muted { color: var(--muted); }
+    .gold { color: var(--gold); }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .photo {
+      display: block;
+      height: 330px;
+      overflow: hidden;
+      background: var(--panel);
+      position: relative;
+    }
+    .photo img { transition: transform .5s; }
+    .photo:hover img { transform: scale(1.06); }
+    .photo span {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 35px 16px 14px;
+      background: linear-gradient(transparent, rgba(0,0,0,.8));
+      font-size: 13px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .feature {
+      padding: 28px;
+      border: 1px solid #3b3025;
+      background: var(--panel);
+    }
+    .feature .number { color: var(--gold); font-size: 12px; letter-spacing: 2px; }
+    .feature h3 { font-size: 28px; margin: 15px 0 12px; }
+    .feature p { color: var(--muted); font-size: 14px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+    .about-image { height: 470px; background: var(--panel); }
+    .about-copy h2 { font-size: clamp(38px, 5vw, 58px); margin: 15px 0 22px; }
+    .about-copy p { color: var(--muted); margin-bottom: 15px; }
+    .quote {
+      margin-top: 25px;
+      padding-left: 18px;
+      border-left: 2px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 25px;
+    }
+
+    .studio {
+      text-align: center;
+      background: #211c18;
+    }
+    .studio h2 { font-size: clamp(40px, 6vw, 60px); margin: 14px 0; }
+    .studio p { max-width: 600px; margin: 0 auto; color: var(--muted); }
+
+    .instagram-panel {
+      text-align: center;
+      padding: 45px 25px;
+      border: 1px solid #59472f;
+      background: linear-gradient(135deg, #292017, #171411);
+    }
+    .instagram-panel h2 { font-size: clamp(38px, 6vw, 60px); margin: 14px 0; }
+    .instagram-panel p { color: var(--muted); margin-bottom: 24px; }
+
+    footer { padding: 30px 0; border-top: 1px solid #3b3025; }
+    .footer-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 15px;
       flex-wrap: wrap;
-      gap: 12px;
-      box-shadow: 0 2px 12px #0000000b;
+      font-size: 12px;
+      color: var(--muted);
     }
-    header h2 { color: #7453d6; }
-    nav { display: flex; gap: 16px; flex-wrap: wrap; }
-    nav a { color: #333; text-decoration: none; font-size: 14px; }
-    nav a:hover { color: #7453d6; }
-    .hero {
-      text-align: center;
-      padding: 85px 20px;
-      background: linear-gradient(135deg, #eee8ff, #fff);
+    footer a { color: var(--gold); }
+
+    @media (max-width: 720px) {
+      .navlinks { gap: 12px; font-size: 11px; }
+      .brand { font-size: 21px; }
+      .hero { min-height: 560px; background-position: 58% center; }
+      .hero-content { padding: 80px 0; }
+      section { padding: 62px 0; }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .photo { height: 235px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-image { height: 350px; }
     }
-    .hero .tag { color: #7453d6; font-weight: bold; }
-    .hero h1 { font-size: clamp(36px, 8vw, 58px); margin: 12px 0; }
-    .hero p { max-width: 620px; margin: 0 auto 25px; color: #626176; }
-    .btn {
-      display: inline-block;
-      background: #7453d6;
-      color: white;
-      padding: 12px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      margin: 5px;
-    }
-    .btn.outline { background: white; color: #7453d6; border: 1px solid #7453d6; }
-    section { padding: 55px 8%; }
-    .heading { text-align: center; margin-bottom: 30px; }
-    .heading h2 { font-size: 30px; }
-    .heading p { color: #77758a; }
-    .about {
-      max-width: 760px;
-      margin: auto;
-      text-align: center;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-    .card {
-      background: white;
-      padding: 24px;
-      border-radius: 14px;
-      border: 1px solid #eeeaf8;
-      box-shadow: 0 5px 20px #30205b08;
-    }
-    .card h3 { color: #6546c4; margin-bottom: 10px; }
-    .card p { color: #666477; }
-    .skills { background: #f0edfa; }
-    .contact { text-align: center; }
-    footer {
-      text-align: center;
-      padding: 22px;
-      background: #25243a;
-      color: white;
-    }
-    @media (max-width: 480px) {
-      header { justify-content: center; }
-      nav { justify-content: center; }
-      section { padding: 42px 6%; }
-      .hero { padding: 65px 18px; }
+    @media (max-width: 380px) {
+      .navlinks { gap: 8px; font-size: 10px; }
+      .brand { font-size: 18px; }
+      .photo { height: 190px; }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h2>Archana.</h2>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <nav class="wrap">
+      <a class="brand" href="#home">GS Photography</a>
+      <div class="navlinks">
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
   </header>
 
   <main>
-    <div class="hero">
-      <p class="tag">WELCOME TO MY PORTFOLIO</p>
-      <h1>Hi, I'm Archana! 👋</h1>
-      <p>
-        I'm building my career in technology and enjoy
-        learning new skills, solving problems and growing
-        through new experiences.
-      </p>
-      <a class="btn" href="#projects">Explore My Work</a>
-      <a class="btn outline" href="#contact">Contact Me</a>
-    </div>
+    <section class="hero" id="home">
+      <div class="wrap hero-content">
+        <div class="eyebrow">Photography · Films · Memories</div>
+        <h1>Every picture<br>tells a <em>love story.</em></h1>
+        <p>Capturing real emotions, beautiful traditions, and unforgettable wedding moments — with creativity, care, and a cinematic touch.</p>
+        <div class="actions">
+          <a class="btn primary" href="#gallery">Explore the Gallery</a>
+          <a class="btn" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">Visit Instagram ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">A collection of moments</div>
+          <h2>Stories worth <span class="gold">remembering.</span></h2>
+          <p>Every celebration has its own story. Explore these photography inspirations, then visit Instagram to discover Gouri Sankar's actual work.</p>
+        </div>
+
+        <div class="gallery">
+          <a class="photo" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Wedding celebration photography" loading="lazy">
+            <span>Wedding Stories ↗</span>
+          </a>
+          <a class="photo" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=700&q=80" alt="Wedding couple portrait" loading="lazy">
+            <span>Couple Portraits ↗</span>
+          </a>
+          <a class="photo" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=700&q=80" alt="Wedding details and celebration" loading="lazy">
+            <span>Beautiful Details ↗</span>
+          </a>
+          <a class="photo" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=700&q=80" alt="Romantic wedding moment" loading="lazy">
+            <span>Real Emotions ↗</span>
+          </a>
+          <a class="photo" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Wedding photography moment" loading="lazy">
+            <span>Timeless Memories ↗</span>
+          </a>
+          <a class="photo" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=700&q=80" alt="Wedding couple celebrating" loading="lazy">
+            <span>More on Instagram ↗</span>
+          </a>
+        </div>
+        <p class="muted" style="font-size:12px; margin-top:16px;">Gallery images are illustrative examples, not verified photographs by Gouri Sankar. Tap any image to visit his Instagram.</p>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">What we love to create</div>
+          <h2>More than pictures.<br><span class="gold">Memories for life.</span></h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="number">01 / PHOTOGRAPHY</div>
+            <h3>Wedding Photography</h3>
+            <p>From candid emotions to cherished traditions, preserving the moments that make every celebration unique.</p>
+          </article>
+          <article class="feature">
+            <div class="number">02 / CINEMATOGRAPHY</div>
+            <h3>Wedding Films</h3>
+            <p>Beautifully captured moving moments transformed into meaningful visual stories.</p>
+          </article>
+          <article class="feature">
+            <div class="number">03 / CREATIVE EDITING</div>
+            <h3>Video Editing</h3>
+            <p>Thoughtful colour grading, smooth transitions, and music that brings every moment together.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <section id="about">
-      <div class="heading">
-        <h2>About Me</h2>
-        <p>A little introduction</p>
-      </div>
-      <div class="about">
-        <p>
-          Hello! I'm Archana. I'm interested in technology,
-          software systems and continuous learning.
-          This website is where I share my professional
-          journey, skills, projects and certifications.
-        </p>
-      </div>
-    </section>
-
-    <section id="skills" class="skills">
-      <div class="heading">
-        <h2>My Skills</h2>
-        <p>Technologies I'm learning and working with</p>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <h3>SQL & PL/SQL</h3>
-          <p>Database queries and data handling.</p>
+      <div class="wrap about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=900&q=85" alt="Professional camera used for creative photography" loading="lazy">
         </div>
-        <div class="card">
-          <h3>WMS</h3>
-          <p>Warehouse management systems and order support.</p>
-        </div>
-        <div class="card">
-          <h3>Problem Solving</h3>
-          <p>Investigating issues and learning how to resolve them.</p>
+        <div class="about-copy">
+          <div class="eyebrow">Behind the lens</div>
+          <h2>Meet <span class="gold">Gouri Sankar.</span></h2>
+          <p>A photographer and video editor driven by a passion for capturing moments that matter.</p>
+          <p>With patience, dedication, and attention to every detail, he works to turn special occasions into memories people can revisit for years to come.</p>
+          <p>From selecting the right music to refining colour and transitions, every edit is approached with care and creativity.</p>
+          <p><strong class="gold">Studio:</strong> Rayagada, Odisha</p>
+          <p><strong class="gold">Recognition:</strong> Editing certificate from Restart Academy</p>
+          <div class="quote">“The best photographs don't just show a moment. They make you feel it again.”</div>
         </div>
       </div>
     </section>
 
-    <section id="experience">
-      <div class="heading">
-        <h2>Experience</h2>
-        <p>My professional journey</p>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <h3>Wipro</h3>
-          <p>
-            Working with warehouse management systems,
-            supporting incident investigation and learning
-            enterprise application processes.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Previous Experience</h3>
-          <p>
-            Add your previous roles, responsibilities,
-            company names and achievements here.
-          </p>
+    <section class="studio">
+      <div class="wrap">
+        <div class="eyebrow">Local roots · Lasting memories</div>
+        <h2>Made with passion in <span class="gold">Rayagada.</span></h2>
+        <p>For wedding photography, cinematic memories, and creative editing, connect with Gouri Sankar through Instagram to discuss your requirements.</p>
+        <div class="actions" style="justify-content:center;">
+          <a class="btn primary" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">Get in Touch ↗</a>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="skills">
-      <div class="heading">
-        <h2>Projects & Achievements</h2>
-        <p>Things I've worked on and learned</p>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <h3>My Portfolio Website</h3>
-          <p>
-            My first personal website, created to share
-            my skills, journey and achievements.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Certifications</h3>
-          <p>
-            Add your completed training courses,
-            certifications and technical achievements here.
-          </p>
+    <section id="contact">
+      <div class="wrap">
+        <div class="instagram-panel">
+          <div class="eyebrow">Let's create something beautiful</div>
+          <h2>Follow the stories on <span class="gold">Instagram.</span></h2>
+          <p>Explore photographs, discover recent work, and connect directly with Gouri Sankar.</p>
+          <a class="btn primary" href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">@gk_photography04 ↗</a>
         </div>
       </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="heading">
-        <h2>Let's Connect</h2>
-        <p>I'd be happy to connect and learn from others.</p>
-      </div>
-      <a class="btn" href="https://www.linkedin.com/">LinkedIn</a>
-      <a class="btn outline" href="mailto:YOUR_EMAIL@example.com">
-        Email Me
-      </a>
-      <p style="margin-top:15px;color:#77758a;font-size:14px">
-        Replace the sample email with your professional email.
-      </p>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Archana | Personal Portfolio</p>
-    <p>Built with passion and a willingness to learn ❤️</p>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Gouri Sankar Photography</span>
+      <span>Made with passion in Rayagada · <a href="https://www.instagram.com/gk_photography04/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></span>
+    </div>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
